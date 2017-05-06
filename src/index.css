@@ -20,6 +20,7 @@ body {
 }
 
 .profile-picture {
+  width: 100%;
   display: block;
   border-radius: 50%;
   box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
@@ -54,6 +55,7 @@ body {
 
 .absolute-center {
     position:absolute;
+    padding-top: 50px;
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
