@@ -17,7 +17,7 @@ export default class Landing extends Component {
                   <div className="row">
                     <div className="col-xs-12 text-center">
                         <h1>Joe Wolfgram</h1>
-                        <p>A Software Engineer working with a wide variety of skills such as React.js, React Native, TODO!!!!</p>
+                        <p>As a Software Developer who is continuously looking for knowledge I am always tinkering or building something new. Over the past year I have worked with many different programming tools such as Swift iOS, Objective-C iOS, Node.js, Express.js, Handlebars.js, MySQL, MongoDB, RethinkDB, Cassandra, jQuerry, JavaScript ES6, React.js, Webpack, React Native, AWS EC2, Bash Scripting, SCSS, Gulp, Nginx just to name a few.</p>
                         <hr/>
                     </div>
                     <div className="row center-btn row-btn-margin">
