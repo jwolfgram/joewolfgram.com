@@ -3,12 +3,18 @@
  */
  import Landing from './Landing';
  import ProjectRedirect from './ProjectRedirect';
+ import OauthDemo from './OauthDemo';
 
 const pages = {
     "Home": {
         href: "/",
         navbarItem: true,
         component: Landing
+    },
+    "Oauth Example": {
+        href: "/oauthPage",
+        navbarItem: false,
+        component: OauthDemo
     },
     "Success Project": {
         href: "/success",
