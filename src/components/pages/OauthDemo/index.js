@@ -19,7 +19,9 @@ export default class OauthExample extends Component {
     }
 
     login() {
-      fetch('https://joewolfgram.com/api/user').then(function(response) {
+      fetch('https://joewolfgram.com/api/user',{
+        credentials: "same-origin"
+      }).then(function(response) {
       	return response.json();
       }).then((json) => {
       	// Yay, `j` is a JavaScript object

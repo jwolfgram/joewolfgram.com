@@ -20,7 +20,8 @@ require('./custom_modules/passport_auth.js')(passport);
 
 app.use(session({secret: 'anystringoftext',
          saveUninitialized: true,
-         resave: true}));
+         resave: true,
+         cookie: { secure: true }}));
 
 app.use(passport.initialize());
 app.use(passport.session());

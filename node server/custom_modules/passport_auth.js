@@ -81,13 +81,14 @@ module.exports = function(passport) {
 				process.nextTick(function() {
 					console.log('doing this?');
 					db.User.findOne({'google.id': profile.id}, function(err, user){
-						if(err) {
+						if (err) {
 							console.log('err?');
 							throw err;
 						}
-						if(user)
+						if (user) {
+							console.log(user);
 							return done(null, user);  //Return account found in database
-						else { //Make new account for user based on info obtained from Google User Account data
+						} else { //Make new account for user based on info obtained from Google User Account data
 							var newUser = new db.User();
 							newUser.google.id = profile.id;
 							newUser.google.token = accessToken;
