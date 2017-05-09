@@ -34,10 +34,7 @@ function isLoggedIn(req, res, next) { //This function is for checking if user lo
 }
 
 app.get(BASEURL + '/user', function(req, res){
-  if (req.isAuthenticated()) {
-    res.send(JSON.stringify(req.user));
-  }
-  res.send(JSON.stringify(false));
+  res.send(JSON.stringify(req.user || false));
 });
 //
 // app.post('/login', bodyParser.json(), function(req, res) {
@@ -76,9 +73,9 @@ app.get(BASEURL + '/user', function(req, res){
 //   failureFlash: false
 // }));
 
-app.get(BASEURL + '/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
+app.get(BASEURL + '/auth/google',function(req, res, next) {console.log('google/');next()}, passport.authenticate('google', {scope: ['profile', 'email']}));
 
-app.get(BASEURL + '/auth/google/callback',
+app.get(BASEURL + '/auth/google/callback',function(req, res, next) {console.log('google/');next()},
   passport.authenticate('google', { successRedirect: '/oauthPage',
                                       failureRedirect: '/oauthPage' })
 );
