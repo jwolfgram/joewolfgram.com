@@ -12,6 +12,7 @@ export default class OauthExample extends Component {
           user: ""
         }
         this.login = this.login.bind(this);
+        this.userInfo = this.userInfo.bind(this);
     }
 
     componentDidMount() {
@@ -20,6 +21,7 @@ export default class OauthExample extends Component {
 
     login() {
       fetch('https://joewolfgram.com/api/user',{
+        method: 'POST',
         credentials: "same-origin"
       }).then(function(response) {
       	return response.json();
@@ -34,9 +36,25 @@ export default class OauthExample extends Component {
       });
     }
 
+    userInfo() {
+      if (this.state.user) {
+        return (
+          <div>
+            <h4>Name</h4>
+            <p>{this.state.user.google.name}</p>
+            <h4>Email</h4>
+            <p>{this.state.user.google.email}</p>
+          </div>
+        )
+
+      } else {
+        return <p>Not Authenticated</p>
+      }
+    }
+
     render() {
         return (<div>
-                    <div>{this.state.user}</div>
+                    <div>{this.userInfo()}</div>
                   <a href="https://joewolfgram.com/api/auth/google">
                     <button id="google-login-btn">
                         <img src="/images/sign-in-with-google.png" height="50" alt="submit" />
