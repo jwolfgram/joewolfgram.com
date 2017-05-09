@@ -27,8 +27,7 @@ export default class OauthExample extends Component {
       }).then((json) => {
       	// Yay, `j` is a JavaScript object
         if (json) {
-          console.log(json);
-          this.setState({user: JSON.stringify(json)});
+          this.setState({user: json});
         } else {
           this.setState({user:'No User'});
         }
