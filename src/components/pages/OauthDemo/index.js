@@ -21,7 +21,6 @@ export default class OauthExample extends Component {
 
     login() {
       fetch('https://joewolfgram.com/api/user',{
-        method: 'POST',
         credentials: "same-origin"
       }).then(function(response) {
       	return response.json();
