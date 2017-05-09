@@ -8,38 +8,33 @@ export default class OauthExample extends Component {
 
     constructor(){
         super();
-    }
-
-    login() {
-      fetch('https://davidwalsh.name/submit-json', {
-      	method: 'post',
-      	body: JSON.stringify({
-      		email: document.getElementById('email').value,
-      		answer: document.getElementById('answer').value
-      	})
-      });
+        this.state = {
+          user: ""
+        }
+        this.login = this.login.bind(this);
     }
 
     componentDidMount() {
-      // let path = browserHistory.location.pathname;
-      // console.log(window.location)
-      // if (path == '/eins') {
-      //   window.open('https://eins.joewolfgram.com', '_blank')
-      // } else {
-      //   if (path == '/success') {
-      //     window.open('https://success.joewolfgram.com', '_blank')
-      //   }
-      // }
-      // browserHistory.push('/')
-      console.log(browserHistory);
-      browserHistory.listen((url) => {
-        console.log(url)
+      this.login();
+    }
+
+    login() {
+      fetch('https://joewolfgram.com/api/user').then(function(response) {
+      	return response.json();
+      }).then((json) => {
+      	// Yay, `j` is a JavaScript object
+        if (json) {
+          this.setState({user: JSON.stringify(json)});
+        } else {
+          this.setState({user:'No User'});
+        }
       });
     }
 
     render() {
         return (<div>
-                  <a href="https://joewolfgram.com/auth/google">
+                    <div>{this.state.user}</div>
+                  <a href="https://joewolfgram.com/api/auth/google">
                     <button id="google-login-btn">
                         <img src="/images/sign-in-with-google.png" height="50" alt="submit" />
                     </button>

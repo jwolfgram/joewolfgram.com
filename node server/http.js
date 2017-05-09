@@ -33,12 +33,12 @@ function isLoggedIn(req, res, next) { //This function is for checking if user lo
   res.redirect(BASEURL + '/login'); //CHANGE ME!!!!
 }
 
-// app.get('/login', function(req, res){
-//   if (req.isAuthenticated()) {
-//     res.send(JSON.stringify(req.user));
-//   }
-//   res.sendFile( __dirname + '/public/html/login.html');
-// });
+app.get(BASEURL + '/user', function(req, res){
+  if (req.isAuthenticated()) {
+    res.send(JSON.stringify(req.user));
+  }
+  res.send(JSON.stringify(false));
+});
 //
 // app.post('/login', bodyParser.json(), function(req, res) {
 //     console.log(req.body);

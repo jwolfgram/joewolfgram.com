@@ -4,6 +4,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Pages from '../components/pages'
+import OauthPage from '../components/pages/OauthDemo'
 import Navigation from '../components/common/Navigation';
 
 class Navbar extends React.Component {
@@ -32,6 +33,7 @@ const Routes = (props) => {
                 <Route component={Navbar}/>
                 <Switch>
                     {populateRoutes()}
+                    <Route component={OauthPage} />
                 </Switch>
             </div>
         </BrowserRouter>
