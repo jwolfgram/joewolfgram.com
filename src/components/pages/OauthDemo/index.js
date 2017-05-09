@@ -31,6 +31,10 @@ export default class OauthExample extends Component {
       //   }
       // }
       // browserHistory.push('/')
+      console.log(browserHistory);
+      browserHistory.listen((url) => {
+        console.log(url)
+      });
     }
 
     render() {

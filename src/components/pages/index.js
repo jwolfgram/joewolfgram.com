@@ -13,7 +13,7 @@ const pages = {
     },
     "Oauth Example": {
         href: "/oauthPage",
-        navbarItem: false,
+        navbarItem: true,
         component: OauthDemo
     },
     "Success Project": {

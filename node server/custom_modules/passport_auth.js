@@ -2,12 +2,11 @@ var passportLocal = require('passport-local').Strategy,
 db = require('./dbs.js'),
 flash = require('connect-flash'),
 GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
-//office365Strategy = require('passport-azure-ad').OIDCStrategy,
 LocalStrategy = require('passport-local').Strategy,
 googleAuth = {
 	'clientID': '371704535120-epmdn8pio92f3fse9o4ufl6p534paoni.apps.googleusercontent.com',
 	'clientSecret': 'xSEaBxVou0baVTgixgrwu4NO',
-	'callbackURL': '/api/auth/google/callback'
+	'callbackURL': '/auth/google/callback'
 };
 
 
@@ -79,8 +78,10 @@ module.exports = function(passport) {
 	    clientSecret: googleAuth.clientSecret,
 	    callbackURL: googleAuth.callbackURL},
 	  	function(accessToken, refreshToken, profile, done) {
+        console.log('doing this?');
     		db.User.findOne({'google.id': profile.id}, function(err, user){
     			if(err) {
+            console.log('err?');
     				throw err;
     			}
     			if(user)
@@ -94,6 +95,7 @@ module.exports = function(passport) {
 
     				newUser.save(function(err){
     					if(err)
+              console.log('err?');
     						throw err;
     					return done(null, newUser);
     				});

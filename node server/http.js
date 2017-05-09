@@ -78,10 +78,10 @@ function isLoggedIn(req, res, next) { //This function is for checking if user lo
 
 app.get(BASEURL + '/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
 
-app.get(BASEURL + '/auth/google/callback', function(req, res) {
-  console.log(JSON.stringify(req.user));
-  res.send(JSON.stringify(req.user));
-});
+app.get(BASEURL + '/auth/google/callback',
+  passport.authenticate('google', { successRedirect: '/oauthPage',
+                                      failureRedirect: '/oauthPage' })
+);
 
 app.get(BASEURL + '/logout', function(req, res){
   req.logout();
