@@ -37,7 +37,7 @@ export default class OauthExample extends Component {
     userInfo() {
       if (this.state.user) {
         return (
-          <div className="center-div">
+          <div>
             <h4>Name</h4>
             <p>{this.state.user.google.name}</p>
             <h4>Email</h4>
@@ -51,11 +51,12 @@ export default class OauthExample extends Component {
     }
 
     render() {
-        return (<div>
+        return (<div className="center-div">
                   {this.userInfo()}
+                  <hr/>
                   <a href="https://joewolfgram.com/api/auth/google">
                     <button id="google-login-btn">
-                        <img src="/images/sign-in-with-google.pg" height="50" alt="submit" />
+                        <img src="/images/sign-in-with-google.png" height="50" alt="submit" />
                     </button>
                   </a>
                 </div>);

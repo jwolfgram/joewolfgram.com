@@ -8,7 +8,10 @@ http = require('http').Server(app),
 session = require('express-session'),
 bodyParser = require('body-parser'),
 db = require('./custom_modules/dbs.js'),
-request = require('request');
+request = require('request'),
+cookieParser = require('cookie-parser'),
+MongoStore = require('connect-mongo')(session),
+cookieSession = require('cookie-session');
 
 mongoose.Promise = global.Promise;
 
@@ -18,10 +21,19 @@ mongoose.connect('mongodb://localhost/joewolfgramDemo', function(err) {
 
 require('./custom_modules/passport_auth.js')(passport);
 
-app.use(session({secret: 'anystringoftext',
-         saveUninitialized: true,
-         resave: true,
-         cookie: { secure: true }}));
+app.use(cookieParser());
+
+// app.use(session({secret: 'anystringoftext',
+//          saveUninitialized: true,
+//          resave: true,
+//          store: new MongoStore({ url: 'mongodb://localhost/joewolfgramDemoSession'}),
+//          cookie: { secure: true , httpOnly: false}}));
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2'],
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}))
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -31,48 +43,12 @@ function isLoggedIn(req, res, next) { //This function is for checking if user lo
     return next();
   }
 
-  res.redirect(BASEURL + '/login'); //CHANGE ME!!!!
+  res.redirect(BASEURL + '/login');
 }
 
 app.get(BASEURL + '/user', function(req, res){
   res.send(JSON.stringify(req.user || false));
 });
-//
-// app.post('/login', bodyParser.json(), function(req, res) {
-//     console.log(req.body);
-//   },
-//   passport.authenticate('local', {
-//   successRedirect: '/profile',
-//   failureRedirect: '/login',
-//   failureFlash: false
-// }));
-//
-// app.post('/signup', bodyParser.json(), function(req, res) {
-//   new db.User ({
-//     firstname: req.body.firstname,
-//     lastname: req.body.lastname,
-//     username: req.body.username,
-//     password: req.body.password
-//   }).save(function(err) {
-//     if (err) {
-//       console.log(err);
-//       //Incorrect username redirect
-//     }else {
-//       console.log('User saved successfully!');
-//       res.redirect('/profile');
-//     }
-//   });
-// });
-//
-// app.get('/profile', isLoggedIn, function(req, res){
-//     res.send("Logged in!");
-// });
-//
-// app.post('/signup', passport.authenticate('local-signup', {
-//   successRedirect: '/',
-//   failureRedirect: '/signup',
-//   failureFlash: false
-// }));
 
 app.get(BASEURL + '/auth/google',function(req, res, next) {console.log('google/');next()}, passport.authenticate('google', {scope: ['profile', 'email']}));
 
