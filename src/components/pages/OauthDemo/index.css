@@ -1,7 +1,8 @@
 #google-login-btn {
-  width: 200px;
+  width: 228px;
   border: 0;
-  background: transparent
+  background: transparent;
+  padding: 0
 }
 
 .center-div {
