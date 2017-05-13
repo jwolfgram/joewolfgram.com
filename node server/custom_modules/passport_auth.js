@@ -79,7 +79,6 @@ module.exports = function(passport) {
 	    callbackURL: googleAuth.callbackURL},
 	  	function(accessToken, refreshToken, profile, done) {
 				process.nextTick(function() {
-					console.log('doing this?');
 					db.User.findOne({'google.id': profile.id}, function(err, user){
 						if (err) {
 							console.log('err?');
