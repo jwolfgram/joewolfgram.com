@@ -20,7 +20,7 @@ export default class OauthExample extends Component {
     }
 
     login() {
-      fetch('https://joewolfgram.com/api/user',{
+      fetch('http://joewolfgram.com/api/user',{
         credentials: "same-origin"
       }).then(function(response) {
       	return response.json();
@@ -54,7 +54,7 @@ export default class OauthExample extends Component {
         return (<div className="center-div">
                   {this.userInfo()}
                   <hr/>
-                  <a href="https://joewolfgram.com/api/auth/google">
+                  <a href="http://joewolfgram.com/api/auth/google">
                     <button id="google-login-btn">
                         <img src="/images/sign-in-with-google.png" height="50" alt="submit" />
                     </button>
