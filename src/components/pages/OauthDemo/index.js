@@ -1,64 +1,74 @@
-import React, { Component } from 'react';
-import { browserHistory } from '../../../utils/routes';
-import {Link} from 'react-router-dom';
-import './index.css';
-
+import React, { Component } from "react";
+import { browserHistory } from "../../../utils/routes";
+import { Link } from "react-router-dom";
+import "./index.css";
 
 export default class OauthExample extends Component {
+  constructor() {
+    super();
+    this.state = {
+      user: ""
+    };
+    this.login = this.login.bind(this);
+    this.userInfo = this.userInfo.bind(this);
+  }
 
-    constructor(){
-        super();
-        this.state = {
-          user: ""
-        }
-        this.login = this.login.bind(this);
-        this.userInfo = this.userInfo.bind(this);
-    }
+  componentDidMount() {
+    this.login();
+  }
 
-    componentDidMount() {
-      this.login();
-    }
-
-    login() {
-      fetch('http://joewolfgram.com/api/user',{
-        credentials: "same-origin"
-      }).then(function(response) {
-      	return response.json();
-      }).then((json) => {
-      	// Yay, `j` is a JavaScript object
+  login() {
+    fetch("http://joewolfgram.com/api/user", {
+      credentials: "same-origin"
+    })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(json => {
+        // Yay, `j` is a JavaScript object
         if (json) {
-          this.setState({user: json});
+          this.setState({ user: json });
         } else {
-          this.setState({user:'No User'});
+          this.setState({ user: "No User" });
         }
       });
-    }
+  }
 
-    userInfo() {
-      if (this.state.user) {
-        return (
-          <div>
-            <h4>Name</h4>
-            <p>{this.state.user.google.name}</p>
-            <h4>Email</h4>
-            <p>{this.state.user.google.email}</p>
-          </div>
-        )
-
-      } else {
-        return <p>Not Authenticated</p>
-      }
+  userInfo() {
+    if (this.state.user) {
+      return (
+        <div>
+          <h4>Name</h4>
+          <p>{this.state.user.google.name}</p>
+          <h4>Email</h4>
+          <p>{this.state.user.google.email}</p>
+          <a href="/api/logout">
+            <button className="btn btn-warning">Logout</button>
+          </a>
+        </div>
+      );
+    } else {
+      return <p>Not Authenticated</p>;
     }
+  }
 
-    render() {
-        return (<div className="center-div">
-                  {this.userInfo()}
-                  <hr/>
-                  <a href="http://joewolfgram.com/api/auth/google">
-                    <button id="google-login-btn">
-                        <img src="/images/sign-in-with-google.png" height="50" alt="submit" />
-                    </button>
-                  </a>
-                </div>);
-    }
+  render() {
+    return (
+      <div>
+        <div className="center-div cardWhite">
+          {this.userInfo()}
+          <hr />
+          <a href="http://joewolfgram.com/api/auth/google">
+            <button id="google-login-btn">
+              <img
+                src="/images/sign-in-with-google.png"
+                height="50"
+                alt="submit"
+              />
+            </button>
+          </a>
+        </div>
+      </div>
+    );
+  }
 }
