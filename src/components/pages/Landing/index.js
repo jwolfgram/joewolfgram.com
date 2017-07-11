@@ -10,7 +10,7 @@ export default class Landing extends Component {
     return (
       <div className="fixed-container">
         <div>
-          <img className="profile-picture" src="/images/me.jpeg" alt="#" />
+          <img className="profile-picture" src="/images/me.jpg" alt="#" />
         </div>
         <div>
           <div className="ext-center">
