@@ -159,6 +159,10 @@ body {
   background-color: rgba(0, 0, 0, 0.7)
 }
 
+.home-page {
+  overflow-y: auto;
+}
+
 .home-page>video {
   position: absolute;
   opacity: 0.8;
