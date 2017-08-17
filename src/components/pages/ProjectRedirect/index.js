@@ -1,27 +1,29 @@
-import React, { Component } from 'react';
-import { browserHistory } from '../../../utils/routes';
+import React, {Component} from 'react';
+import {browserHistory} from '../../../utils/routes';
 import {Link} from 'react-router-dom';
 
 export default class ProjectRedirect extends Component {
 
-    constructor(){
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    componentDidMount() {
-      let path = browserHistory.location.pathname;
-      console.log(window.location)
-      if (path == '/eins') {
-        window.open('http://eins.joewolfgram.com', '_blank')
-      } else {
-        if (path == '/success') {
-          window.open('http://success.joewolfgram.com', '_blank')
-        }
+  componentDidMount() {
+    let path = browserHistory.location.pathname;
+    console.log(window.location)
+    if (path == '/eins') {
+      window.open('http://eins.joewolfgram.com', '_blank')
+    } else {
+      if (path == '/success') {
+        window.open('http://success.joewolfgram.com', '_blank')
       }
-      browserHistory.push('/')
     }
+    browserHistory.push('/')
+  }
 
-    render() {
-        return (<div>Redirecting...</div>);
-    }
+  render() {
+    return (
+      <div>Redirecting...</div>
+    );
+  }
 }
