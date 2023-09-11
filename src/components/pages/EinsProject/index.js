@@ -27,7 +27,7 @@ export default class ProjectRedirect extends Component {
         <video playsInline autoPlay muted loop src="/einsDemoVid.mov"/>
         <div className="description-hover">
           <p onClick={() => {
-            window.open('http://eins.joewolfgram.com', '_blank')
+            window.open('http://eins.digibitservices.com', '_blank')
           }}>Click Here to view live website!</p>
         </div>
       </div>

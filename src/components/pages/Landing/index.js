@@ -29,9 +29,9 @@ export default class Landing extends Component {
           margin: 50
         }}>
           <div className="text-area">
-            <h1 className="text-center">Joe Wolfgram</h1>
+            <h1 className="text-center">Digibit Services</h1>
             <p className="text-center">
-              As a Software Developer who is continuously expanding my knowledge I am always tinkering or building something new. Over my time in development I have worked with many different programming tools such as Swift iOS, Objective-C iOS, Node.js, Express.js, Handlebars.js, MySQL, MongoDB, RethinkDB, Cassandra, jQuerry, JavaScript ES6 / ES7, React.js, Webpack, React Native, AWS EC2, Bash Scripting, SCSS, Gulp, and Nginx to create Full Stack Applications.
+              Over 9 years of experiance in Software Engineering working with JavaScript and Golang. I build dynamic websites used to help solve problems in the bussiness space. 
             </p>
             <hr/>
             <div className="center-btn row-btn-margin">

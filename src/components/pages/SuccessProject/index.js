@@ -12,10 +12,10 @@ export default class ProjectRedirect extends Component {
     // let path = browserHistory.location.pathname;
     // console.log(window.location)
     // if (path == '/eins') {
-    //   window.open('http://eins.joewolfgram.com', '_blank')
+    //   window.open('http://eins.digibitservices.com', '_blank')
     // } else {
     //   if (path == '/success') {
-    //     window.open('http://success.joewolfgram.com', '_blank')
+    //     window.open('http://success.digibitservices.com', '_blank')
     //   }
     // }
     // browserHistory.push('/')
