@@ -13,16 +13,6 @@ const pages = {
     navbarItem: true,
     component: Landing
   },
-  "Oauth Example": {
-    href: "/oauthPage",
-    navbarItem: true,
-    component: OauthDemo
-  },
-  "Success Project": {
-    href: "/success",
-    navbarItem: true,
-    component: SuccessProject
-  },
   "Eins Project": {
     href: "/eins",
     navbarItem: true,

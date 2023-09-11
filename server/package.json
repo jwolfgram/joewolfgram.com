@@ -29,6 +29,7 @@
     "gulp-uglify": "^2.0.0",
     "mongodb": "^2.2.8",
     "mongoose": "^4.5.10",
+    "passport": "^0.6.0",
     "passport-azure-ad": "^2.0.1",
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
