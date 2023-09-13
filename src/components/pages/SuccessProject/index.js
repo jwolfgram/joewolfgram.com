@@ -4,9 +4,6 @@ import {Link} from 'react-router-dom';
 
 export default class ProjectRedirect extends Component {
 
-  constructor() {
-    super();
-  }
 
   componentDidMount() {
     // let path = browserHistory.location.pathname;

@@ -8,18 +8,33 @@ body {
 }
 
 .imgs-container {
-  margin: 50px auto;
+  margin: 100px auto 50px;
   height: 400px;
   width: 400px;
   position: relative;
+  z-index: 1;
 }
 
-.imgs-container>img {
+.circle-picture {
+  border-radius: 50%;
+  box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.75);
+  border: 4px solid #000;
+  margin: 0 auto;
   height: 250px;
   width: 250px;
   position: absolute;
-  z-index: 0;
+}
+
+.imgs-container>.animate-in {
+  height: 250px;
+  width: 250px;
+
   animation-name: fade-in;
+  animation-duration: 3s;
+}
+
+.circle-hover {
+  animation-name: on-hover;
   animation-duration: 3s;
 }
 
@@ -36,13 +51,40 @@ body {
   }
 }
 
-.circle-picture {
-  display: block;
-  border-radius: 50%;
-  box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.75);
-  border: 4px solid #000;
-  margin: 0 auto;
+@keyframes on-hover {
+  0% {
+    opacity: 1;
+    height: 250px;
+    width: 250px;
+    bottom: 0%;
+  }
+  25% {
+    opacity: 1;
+    margin-top: -125px;
+    bottom: -150px;
+  }
+  50% {
+    opacity: 1;
+    height: 300px;
+    width: 300px;
+    margin-top: -125px;
+    bottom: -150px;
+  }
+  75% {
+    opacity: 1;
+    margin-top: -125px;
+    bottom: -150px;
+  }
+  100% {
+    opacity: 1;
+    height: 250px;
+    width: 250px;
+    margin-top: 0%;
+    bottom: 0%;
+  }
 }
+
+
 
 .row-btn-margin>a>* {
   margin-top: 5px;
@@ -155,7 +197,6 @@ body {
   border-radius: 3px;
   padding: 20px;
   color: #fff;
-  z-index: 5;
   background-color: rgba(0, 0, 0, 0.7)
 }
 
