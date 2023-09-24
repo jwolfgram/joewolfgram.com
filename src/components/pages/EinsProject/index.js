@@ -24,7 +24,7 @@ export default class ProjectRedirect extends Component {
   render() {
     return (
       <div className="eins-page fixed-container">
-        <video playsInline autoPlay muted loop src="/einsDemoVid.mov"/>
+        <video playsInline autoPlay muted loop src="/einsDemoVid.mp4"/>
         <div className="description-hover">
           <p onClick={() => {
             window.open('http://eins.digibitservices.com', '_blank')
